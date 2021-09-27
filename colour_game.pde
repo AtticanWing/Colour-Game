@@ -40,9 +40,11 @@ int chance; //50-50 chance of match
 float titleAngle = 0;
 float angle = 1;
 
-//timer variables---------------------------------------------------------------------------------------------
+//timer +  time elapsed variables-----------------------------------------------------------------------------
 int timer = 199;
 int wordSize = 1;
+int gameFrames = 0;
+int gameTime = 0;
 
 //pause variables---------------------------------------------------------------------------------------------
 float xp = 725;

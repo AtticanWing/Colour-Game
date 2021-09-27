@@ -8,9 +8,9 @@ void game() {
   fill(#7B6647);
   rect(x,0, x, height);
 
-//colour name + size (timer #1)----------------------------------------------------------------------------
+//colour name + size (timer display #1)-----------------------------------------------------------------
   textSize(wordSize);
-  wordSize += 2;
+  wordSize += 2; //word size increases by 2 every frame
   if (wordSize > 200) {
     mode = GAMEOVER; 
   }
@@ -27,8 +27,8 @@ void game() {
 //score + highscore display-----------------------------------------------------------------------------
   textSize(20);
   fill(0);
-  text("SCORE: " + score, 75,50);
-  text("HIGHSCORE: " + highscore, 100,100);
+  text("SCORE: " + score, 60,65);
+  text("HIGHSCORE: " + highscore, 85,100);
   
 //tactile true and false display------------------------------------------------------------------------
   textSize(40);
@@ -42,17 +42,26 @@ void game() {
     text("FALSE", 600,700);
   }
   
-//timer #2 (rectangle) display-----------------------------------------------------------------------------------------
+//timer display #2 (rectangle)-----------------------------------------------------------------------
   fill(0);
   rect(300,50, timer,50); 
-  timer -= 2; //rect gets smaller by 2 every frame
+  timer -= 2; //rect width gets smaller by 2 every frame
 
-//pause button------------------------------------------------------------------------------------------
+//pause button---------------------------------------------------------------------------------------
   noStroke();
   ellipse(xp,yp,100,100);
   fill(#D7C0A2);
   rect(700,50,15,50);
   rect(735,50,15,50);
+  
+//time elapsed counter--------------------------------------------------------------------------------
+  gameFrames += 1; //increases by 1 per frame
+  if (gameFrames%60 == 0) { //for every 60 frames, 1 second passes
+    gameTime += 1;
+  }
+  textSize(20);
+  fill(0);
+  text("TIME ELAPSED: " + gameTime + " secs", 125, 30);
 }
 
 
@@ -76,6 +85,11 @@ void gameClicks() {
 //reset timer------------------------------------------------------------------------------------------
   wordSize = 1;
   timer = 199;
+
+/*reset time elapsed counter---------------------------------------------------------------------------
+  gameTime = 0; //Decided not to because it's cooler to see how long you've been playing, but here is the code if I want to reset it for every puzzle :D
+  gameFrames = 0;
+*/
 
 //generate new puzzle----------------------------------------------------------------------------------
   chance();

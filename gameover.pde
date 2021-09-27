@@ -16,6 +16,7 @@ void gameover() {
   textSize(40);
   text("SCORE: " + score, 400, 575);
   text("HIGHSCORE: " + highscore, 400, 650);
+  text("TIME ELAPSED: " + gameTime + " secs", 400, 725);
 
 //tactile retry button----------------------------------------------------------------------------
   if (mouseX>300 && mouseY<450 && mouseX<500 && mouseY>350) {
@@ -42,6 +43,8 @@ void gameoverClicks() {
     score = 0;
     wordSize = 1;
     timer = 199;
+    gameTime = 0;
+    gameFrames = 0;
     mode = INTRO;
   }
 }
