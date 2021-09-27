@@ -8,7 +8,7 @@ void game() {
   fill(#7B6647);
   rect(x,0, x, height);
 
-//colour name + size (timer)----------------------------------------------------------------------------
+//colour name + size (timer #1)----------------------------------------------------------------------------
   textSize(wordSize);
   wordSize += 2;
   if (wordSize > 200) {
@@ -42,7 +42,7 @@ void game() {
     text("FALSE", 600,700);
   }
   
-//timer (rect) display-----------------------------------------------------------------------------------------
+//timer #2 (rectangle) display-----------------------------------------------------------------------------------------
   fill(0);
   rect(300,50, timer,50); 
   timer -= 2; //rect gets smaller by 2 every frame
